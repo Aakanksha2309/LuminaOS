@@ -359,7 +359,7 @@ const Home = ({ onTextBoxHover, onTextBoxLeave }) => {
 
     const handleCopy = async () => {
         try {
-            const text = await (await (navigator.clipboard ? navigator.clipboard.readText() : Promise.reject('Clipboard API not supported')));
+            const text = await navigator.clipboard.readText();
             if (text) {
                 const newHistoryItem = {
                     text: text,
@@ -716,7 +716,7 @@ const Home = ({ onTextBoxHover, onTextBoxLeave }) => {
             };
             window.addEventListener('online', handleConnectionChange);
             window.addEventListener('offline', handleConnectionChange);
-            if (navigator.connection) navigator.connection.addEventListener('change', handleConnectionChange);
+            navigator.connection.addEventListener('change', handleConnectionChange);
 
             return () => {
                 window.removeEventListener('online', handleConnectionChange);
@@ -728,7 +728,7 @@ const Home = ({ onTextBoxHover, onTextBoxLeave }) => {
 
     useEffect(() => {
         function getBattery() {
-            if ('getBattery' in navigator) navigator.getBattery().then((battery) => {
+            navigator.getBattery().then((battery) => {
                 setBatteryLevel(battery.level * 100);
                 setIsCharging(battery.charging)
             });
