@@ -5,12 +5,14 @@ import styles from '@/styles/SignUp.module.css';
 import { Client, Databases, ID } from 'appwrite';
 import { useRouter } from 'next/navigation';
 
+// Initialize Appwrite client
 const client = new Client()
-  .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_URL)
-  .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID);
+  .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_URL || '')
+  .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID || '');
 
 const databases = new Databases(client);
 
+// Random code generator
 function getRandomLetter() {
   const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   return alphabet[Math.floor(Math.random() * alphabet.length)];
@@ -21,27 +23,14 @@ function getRandomNumber() {
 }
 
 function generateRandomCode() {
-  let code = '';
-  for (let i = 0; i < 4; i++) {
-    if (i === 1 || i === 3) {
-      code += '-';
-    }
-    if (i === 0) {
-      code += getRandomLetter();
-    } else {
-      code += getRandomNumber();
-    }
-    code += getRandomLetter();
-    code += getRandomLetter();
-    code += getRandomLetter();
-  }
-  return code;
+  return `${getRandomLetter()}${getRandomNumber()}${getRandomNumber()}${getRandomNumber()}-${getRandomLetter()}${getRandomLetter()}${getRandomLetter()}${getRandomNumber()}-${getRandomLetter()}${getRandomLetter()}${getRandomLetter()}${getRandomNumber()}-${getRandomLetter()}${getRandomLetter()}${getRandomLetter()}${getRandomNumber()}`;
 }
 
 export default function SignUp() {
   const router = useRouter();
   const [accounts, setAccounts] = useState([]);
   const [allEmail, setAllEmail] = useState([]);
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('yourname@sparkus.com');
   const [password, setPassword] = useState('');
@@ -50,84 +39,102 @@ export default function SignUp() {
   const [dateOfBirth, setDateOfBirth] = useState('');
   const [sCode, setSCode] = useState('');
 
+  // Generate Security Code on Load
   useEffect(() => {
     setSCode(generateRandomCode());
   }, []);
 
+  // Fetch existing user data
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await databases.listDocuments(
-          process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
-          process.env.NEXT_PUBLIC_APPWRITE_LOGINPAGE_COLLECTION_ID
+          process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID || '',
+          process.env.NEXT_PUBLIC_APPWRITE_LOGINPAGE_COLLECTION_ID || ''
         );
         setAccounts(response.documents);
       } catch (error) {
         console.error('Error fetching accounts:', error);
       }
     };
-
     fetchData();
   }, []);
 
+  // Extract emails from accounts
   useEffect(() => {
-    const emails = accounts.map((acc) => acc.Email);
-    setAllEmail(emails);
+    setAllEmail(accounts.map((acc) => acc.Email?.toLowerCase()));
   }, [accounts]);
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (allEmail.includes(email)) {
+    if (allEmail.includes(email.toLowerCase())) {
       alert('This email already exists!');
-    } else if (password !== confirmPassword) {
-      alert("Password doesn't match confirmed password!");
-    } else if (password.length > 10) {
-      alert('Password length must be smaller or equal to 10');
-    } else {
-      try {
-        await databases.createDocument(
-          process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
-          process.env.NEXT_PUBLIC_APPWRITE_LOGINPAGE_COLLECTION_ID,
-          ID.unique(),
-          {
-            Name: name,
-            Email: email,
-            Password: password,
-            SCode: sCode,
-            PhoneNo: phoneNo,
-            DateOfBirth: dateOfBirth,
-            PremiemAccount: 'No'
-          }
-        );
-        
-        localStorage.setItem('Login', 'true');
-        localStorage.setItem('Email', email);
-        localStorage.setItem('Password', password);
-        localStorage.setItem('OSActivated', 'true');
-        
-        alert("Thanks for creating an account! You're now logged in to LuminaOS!");
-        router.push('/lumina-os');
-      } catch (error) {
-        console.error('Error creating account:', error);
-        alert('An error occurred! Please contact us if the problem is not resolved automatically.');
-      }
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match.");
+      return;
+    }
+
+    if (password.length > 10) {
+      alert("Password must be 10 characters or fewer.");
+      return;
+    }
+
+    if (isNaN(phoneNo) || phoneNo.length !== 10) {
+      alert("Phone number must be a valid 10-digit number.");
+      return;
+    }
+
+    try {
+      await databases.createDocument(
+        process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID || '',
+        process.env.NEXT_PUBLIC_APPWRITE_LOGINPAGE_COLLECTION_ID || '',
+        ID.unique(),
+        {
+          Name: name,
+          Email: email,
+          Password: password,
+          SCode: sCode,
+          PhoneNo: parseInt(phoneNo, 10),
+          DateOfBirth: dateOfBirth,
+          PremiemAccount: 'No'
+        }
+      );
+
+      localStorage.setItem('Login', 'true');
+      localStorage.setItem('Email', email);
+      localStorage.setItem('Password', password);
+      localStorage.setItem('OSActivated', 'true');
+
+      alert("Thanks for creating an account! You're now logged in to LuminaOS!");
+      router.push('/lumina-os');
+    } catch (error) {
+      console.error('Error creating account:', error);
+      alert('Something went wrong. Please try again later.');
     }
   };
 
+  // Handle form input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     switch (name) {
+      case 'name':
+        setName(value);
+        if (email === 'yourname@sparkus.com') {
+          const autoEmail = value.replace(/\s/g, '').toLowerCase();
+          setEmail(`${autoEmail}@sparkus.com`);
+        }
+        break;
       case 'email':
         setEmail(value.toLowerCase());
         break;
       case 'password':
         setPassword(value);
-        break;
-      case 'name':
-        setName(value);
-        const modifiedName = value.replace(/\s/g, '').toLowerCase();
-        setEmail(`${modifiedName}@sparkus.com`);
         break;
       case 'confirmPassword':
         setConfirmPassword(value);
@@ -164,7 +171,7 @@ export default function SignUp() {
             onChange={handleChange}
             autoComplete="off"
             className={styles.input}
-            placeholder="Enter your email..."
+            placeholder="Enter your Email..."
             required
           />
           <input
@@ -172,9 +179,8 @@ export default function SignUp() {
             name="password"
             value={password}
             onChange={handleChange}
-            autoComplete="off"
             className={styles.input}
-            placeholder="Enter a password..."
+            placeholder="Enter your Password..."
             required
           />
           <input
@@ -183,7 +189,7 @@ export default function SignUp() {
             value={confirmPassword}
             onChange={handleChange}
             className={styles.input}
-            placeholder="Confirm your password..."
+            placeholder="Confirm your Password..."
             required
           />
           <input
@@ -192,16 +198,17 @@ export default function SignUp() {
             value={dateOfBirth}
             onChange={handleChange}
             className={styles.input}
-            placeholder="Enter your Date Of Birth..."
             required
           />
           <input
-            type="number"
+            type="tel"
             name="phoneNo"
             value={phoneNo}
             onChange={handleChange}
             className={styles.input}
-            placeholder="Enter your Phone No..."
+            placeholder="Enter your Phone Number..."
+            pattern="[0-9]{10}"
+            maxLength={10}
             required
           />
           <input
@@ -216,4 +223,4 @@ export default function SignUp() {
       </div>
     </main>
   );
-} 
+}
