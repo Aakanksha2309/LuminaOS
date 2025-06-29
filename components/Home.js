@@ -1461,7 +1461,7 @@ const Home = ({ onTextBoxHover, onTextBoxLeave }) => {
                                     onChange={() => handleIframeLoad()}
                                     id="BrowserIFrame"
                                     className={styles.iFrame}
-                                    src={`https://luminaos.vercel.app/api/iframe-procxy/proxy?url=${encodeURIComponent(url)}`}
+                                    src={`https://luminaos.vercel.app/api/proxy?url=${encodeURIComponent(url)}`}
                                 />
                             </div>
                         </div>
