@@ -1,18 +1,18 @@
-'use client';
+ 'use client';
 
 import { useEffect, useState } from 'react';
 import styles from '@/styles/SignUp.module.css';
 import { Client, Databases, ID } from 'appwrite';
 import { useRouter } from 'next/navigation';
 
-// Initialize Appwrite client
+// Appwrite client setup
 const client = new Client()
   .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_URL || '')
   .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID || '');
 
 const databases = new Databases(client);
 
-// Random code generator
+// Generate random letter and number
 function getRandomLetter() {
   const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   return alphabet[Math.floor(Math.random() * alphabet.length)];
@@ -22,8 +22,13 @@ function getRandomNumber() {
   return Math.floor(Math.random() * 10);
 }
 
+// Generate SCode like A123-BCD9-EFG2-HIJ8
 function generateRandomCode() {
-  return `${getRandomLetter()}${getRandomNumber()}${getRandomNumber()}${getRandomNumber()}-${getRandomLetter()}${getRandomLetter()}${getRandomLetter()}${getRandomNumber()}-${getRandomLetter()}${getRandomLetter()}${getRandomLetter()}${getRandomNumber()}-${getRandomLetter()}${getRandomLetter()}${getRandomLetter()}${getRandomNumber()}`;
+  const part1 = `${getRandomLetter()}${getRandomNumber()}${getRandomNumber()}${getRandomNumber()}`;
+  const part2 = `${getRandomLetter()}${getRandomLetter()}${getRandomLetter()}${getRandomNumber()}`;
+  const part3 = `${getRandomLetter()}${getRandomLetter()}${getRandomLetter()}${getRandomNumber()}`;
+  const part4 = `${getRandomLetter()}${getRandomLetter()}${getRandomLetter()}${getRandomNumber()}`;
+  return `${part1}-${part2}-${part3}-${part4}`;
 }
 
 export default function SignUp() {
@@ -39,12 +44,12 @@ export default function SignUp() {
   const [dateOfBirth, setDateOfBirth] = useState('');
   const [sCode, setSCode] = useState('');
 
-  // Generate Security Code on Load
+  // Set SCode once on mount
   useEffect(() => {
     setSCode(generateRandomCode());
   }, []);
 
-  // Fetch existing user data
+  // Fetch existing account data
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -60,12 +65,12 @@ export default function SignUp() {
     fetchData();
   }, []);
 
-  // Extract emails from accounts
+  // Extract all emails
   useEffect(() => {
     setAllEmail(accounts.map((acc) => acc.Email?.toLowerCase()));
   }, [accounts]);
 
-  // Handle form submission
+  // Handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -118,17 +123,15 @@ export default function SignUp() {
     }
   };
 
-  // Handle form input changes
+  // Handle input field changes
   const handleChange = (e) => {
     const { name, value } = e.target;
 
     switch (name) {
       case 'name':
         setName(value);
-        if (email === 'yourname@sparkus.com') {
-          const autoEmail = value.replace(/\s/g, '').toLowerCase();
-          setEmail(`${autoEmail}@sparkus.com`);
-        }
+        const modifiedEmail = value.replace(/\s/g, '').toLowerCase();
+        setEmail(`${modifiedEmail}@sparkus.com`);
         break;
       case 'email':
         setEmail(value.toLowerCase());
@@ -207,8 +210,8 @@ export default function SignUp() {
             onChange={handleChange}
             className={styles.input}
             placeholder="Enter your Phone Number..."
-            pattern="[0-9]{10}"
             maxLength={10}
+            pattern="[0-9]{10}"
             required
           />
           <input
