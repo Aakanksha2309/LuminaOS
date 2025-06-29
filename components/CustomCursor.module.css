@@ -1,0 +1,30 @@
+/* components/CustomCursor.module.css */
+
+.cursor {
+    position: fixed;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 16px solid #31ff16;
+    /* Change this color to your preferred color */
+    transform: translate(-50%, -50%) rotate(-30deg);
+    /* Rotate the arrow by -30 degrees */
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.3s ease;
+    /* Add transition for smooth animation */
+}
+
+/* Add style for hover state */
+.cursor.hover {
+    position: fixed;
+    width: 1px;
+    height: 16px;
+    border: none;
+    background: white;
+    transform: rotate(0deg);
+    pointer-events: none;
+    z-index: 9999;
+    /* transition: transform 0.3s ease; */
+}
