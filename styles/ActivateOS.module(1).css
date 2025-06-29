@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.main {
+    background: linear-gradient(rgb(0, 6, 30), rgb(0, 5, 26), rgb(0, 1, 6));
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    background: rgba(var(--card-rgb), 0.1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    height: 16vh;
+    width: 63vh;
+    border-radius: 2vh;
+}
+
+.Heading {
+    margin-top: 5vh;
+    margin-left: 3vh;
+    font-family: 'Roboto', sans-serif;
+    font-size: 4vh;
+    margin-bottom: 3vh;
+}
+
+.input {
+    background: rgba(var(--card-rgb), 0.1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    border-radius: 1.5vh;
+    padding: 1vh 2vh;
+    width: 92%;
+    margin-left: 2vh;
+    height: 6vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.btn {
+    background: rgba(var(--card-rgb), 0.1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    border-radius: 1.5vh;
+    padding: 1vh 2vh;
+    width: 92%;
+    margin-left: 2vh;
+    height: 6vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    cursor: pointer;
+    color: #fff;
+}
+
+.login .link {
+    font-family: 'Roboto', sans-serif;
+    color: rgb(0, 106, 255);
+}
+
+.red {
+    color: red;
+    visibility: hidden;
+}
+
+.m3 {
+    margin-bottom: 3vh;
+}

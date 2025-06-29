@@ -1,0 +1,1938 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.main, .main1, .main2 {
+    cursor: none;
+    overflow: hidden;
+}
+.Div1 main img {
+    overflow: hidden;
+}
+
+.Div1 main {
+    overflow: hidden;
+}
+
+.icon {
+    position: relative;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75px;
+    height: 75px;
+    padding: 25px 10px;
+    margin-left: 16px;
+    transform: translateZ(0);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0px 2px 8px -1px #0000001a;
+    animation: animate 5s;
+}
+
+.icon::before,
+.icon::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+}
+
+/* Conic Gradient Animation */
+.icon::before {
+    animation: 6s rotate linear infinite;
+    width: 200%;
+    height: 200%;
+    background: var(--tile-border);
+}
+
+/* Inner Square */
+.icon::after {
+    inset: 0;
+    padding: 1px;
+    border-radius: var(--border-radius);
+    background: linear-gradient(to bottom right,
+            rgba(var(--tile-start-rgb), 1),
+            rgba(var(--tile-end-rgb), 1));
+    background-clip: content-box;
+}
+
+@media (prefers-reduced-motion) {
+    .icon::before {
+        animation: none;
+    }
+}
+
+.startscreen {
+    font-family: 'Roboto', sans-serif;
+    font-size: 5vh;
+    animation: animate 6s;
+}
+
+.light {
+    height: 7vh;
+    width: 7vh;
+}
+
+.main1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6rem;
+    min-height: 100vh;
+    background: linear-gradient(#000b16, #000810, #00070e, #00050a);
+}
+
+.img1 {
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    filter: blur(2px);
+}
+
+.Login {
+    height: 90vh;
+    width: 95vw;
+    margin: 5vh 0vh;
+    position: absolute;
+    border-radius: 1.5vh;
+    background: rgb(0 0 0 / 47%);
+    transition: all 1.5s ease-in-out;
+}
+
+.Login h1 {
+    font-size: 5vh;
+    margin: 4vh 0vh;
+}
+
+.Activate {
+    height: 90vh;
+    width: 95vw;
+    margin: 5vh 0vh;
+    position: absolute;
+    border-radius: 1.5vh;
+    background: rgb(0 0 0 / 47%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1.5s ease-in-out;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.Setup {
+    height: 90vh;
+    width: 95vw;
+    margin: 5vh 0vh;
+    position: absolute;
+    border-radius: 1.5vh;
+    background: rgb(0 0 0 / 47%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1.5s ease-in-out;
+    flex-direction: column;
+}
+
+.Activate h1 {
+    font-size: 5vh;
+    margin: 4vh 0vh;
+}
+
+.mainlock {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    text-align: center;
+}
+
+.imglock {
+    height: 102vh;
+    width: 100vw;
+    filter: blur(4px);
+    z-index: -2;
+    position: absolute;
+}
+
+.Namelock {
+    /* position: absolute;
+    top: 51vh;
+    left: 100vh; */
+    font-size: 6vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+.inputlock {
+    /* position: absolute;
+    top: 59vh;
+    left: 93vh; */
+    font-family: 'Roboto', sans-serif;
+    width: 35vh;
+    border-radius: 1vh;
+    background: rgb(38 38 38 / 71%);
+    outline: none;
+    height: 5vh;
+    padding: 0vh 1vh;
+    border: none;
+}
+
+.btnlock {
+    /* position: absolute;
+    top: 65vh;
+    left: 101vh; */
+    font-family: 'Roboto', sans-serif;
+    width: 11vh;
+    border-radius: 1vh;
+    background: rgb(38 38 38 / 77%);
+    outline: none;
+    height: 5vh;
+    padding: 0vh 1vh;
+    border: none;
+    margin-left: 2vh;
+}
+
+.btnlock:hover {
+    background: rgb(38 38 38 / 83%);
+}
+
+.btnlock:active {
+    background: rgb(38 38 38 / 89%);
+}
+
+.mainlock .Timelock {
+    color: white;
+    position: absolute;
+    font-size: 8vh;
+    text-align: center;
+    width: 100vw;
+    margin-top: 8vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+.allWallpaper {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    overflow: hidden;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.settingWallpaper {
+    width: 40%;
+    border-radius: 1vh;
+    margin: 1vh 2vh;
+}
+
+.mainlock .Datelock {
+    color: white;
+    position: absolute;
+    font-size: 3vh;
+    text-align: center;
+    width: 100vw;
+    margin-top: 18vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+.divlock {
+    width: 100vw;
+    text-align: center;
+    position: absolute;
+    margin-top: 45vh;
+}
+
+
+.main2 a {
+    color: rgb(0, 115, 255);
+}
+
+.main2 {
+    background: linear-gradient(rgb(0, 6, 30), rgb(0, 5, 26), rgb(0, 1, 6));
+    min-width: 100vw;
+    min-height: 100vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: visible;
+}
+
+.Setup h1 {
+    font-size: 5vh;
+    margin: 4vh 0vh;
+}
+
+.inputSetup {
+    background: rgba(var(--input-rgb), 0.300);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    cursor: none;
+    outline: none;
+    border-radius: 1vh;
+    padding: 1vh 2vh;
+    width: 92%;
+    margin-left: 2vh;
+    height: 6vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.SetupInput {
+    background: rgba(var(--input-rgb), 0.300);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    cursor: none;
+    outline: none;
+    border-radius: 1vh;
+    padding: 1vh 2vh;
+    width: 92%;
+    margin-left: 2vh;
+    height: 6vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+
+.icon img {
+    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+.btnstart {
+    background: rgba(var(--input-rgb), 0.300);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    border-radius: 1vh;
+    padding: 1vh 2vh;
+    width: 5%;
+    margin-left: 2vh;
+    height: 7vh;
+    margin-bottom: 2vh;
+    position: absolute;
+    color: #fff;
+    bottom: 2vh;
+    right: 1vh;
+}
+
+.activateBtn {
+    background: rgba(var(--input-rgb), 0.300);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    border-radius: 1vh;
+    padding: 1vh 2vh;
+    width: 5%;
+    margin-left: 2vh;
+    height: 7vh;
+    margin-bottom: 2vh;
+    position: absolute;
+    color: #fff;
+    bottom: 2vh;
+    right: 1vh;
+    visibility: hidden;
+}
+
+.Login p {
+    font-family: 'Roboto', sans-serif;
+    margin: 2vh 1.5vh;
+}
+
+.Login p a {
+    color: rgb(0, 106, 255);
+}
+
+.red {
+    color: red;
+}
+
+.Loading {
+    width: 4%;
+    height: 6%;
+    position: absolute;
+    margin: 47vh 0vh;
+    border-radius: 1.5vh;
+    background: rgb(0 0 0 / 47%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1.5s ease-in-out;
+}
+
+.Load {
+    width: 5vh;
+    height: 5vh;
+    border: 4px solid transparent;
+    border-top: 5px solid #fff;
+    border-radius: 100%;
+    animation: spin 2s linear infinite;
+    transition: all 1.5s ease-in-out;
+}
+
+.ActivateLoad {
+    width: 15vh;
+    height: 15vh;
+    border: 4px solid transparent;
+    border-top: 5px solid #fff;
+    border-radius: 100%;
+    animation: spin 2s linear;
+    transition: all 1.5s ease-in-out;
+    margin-bottom: 25vh;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.option {
+    background: #02182d;
+    color: #cfcfcf;
+}
+
+.checkbox {
+    width: 10%;
+    height: 3vh;
+    margin-left: 1vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+
+.main {
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.img {
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+}
+
+.search {
+    position: absolute;
+    top: 0vh;
+    left: 35%;
+    right: 35%;
+    font-size: 2vh;
+    width: 30%;
+    border-radius: 1vh;
+}
+
+.menubar {
+    width: 100vw;
+    height: 4.5vh;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    background: transparent;
+}
+
+.start {
+    height: 4vh;
+    width: 3.5vh;
+    margin: 0.5vh 1vh;
+    color: rgb(255, 255, 255);
+    transition: all 0.3s;
+    left: 0;
+    position: absolute;
+}
+
+.date {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 2vh;
+    margin-top: 0.5vh;
+    font-size: 2.3vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+.time {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 13vh;
+    margin-top: 0.5vh;
+    font-size: 2.3vh;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.start:hover {
+    color: rgb(0, 119, 255);
+}
+
+.start:active {
+    color: rgb(0, 47, 255);
+}
+
+.input {
+    background: rgb(0 0 0 / 39%);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    cursor: none;
+    border-radius: 0.7vh;
+    padding: 0.5vh 1vh;
+    width: 44vh;
+    margin-top: 0.7vh;
+    font-size: 2vh;
+    border: none;
+    outline: none;
+}
+
+.result {
+    height: auto;
+    width: 0;
+    position: absolute;
+    top: 8vh;
+    text-align: center;
+    background: rgb(0 0 0 / 69%);
+    border-radius: 2vh;
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    transition: all 2s;
+}
+
+.result h1 {
+    font-size: 5vh;
+}
+
+.result p {
+    font-size: 2.5vh;
+}
+
+.WeatherDiv {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5vh;
+    padding: 0vh 2vh;
+    border-radius: 1.5vh;
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+}
+
+.WeatherDiv:hover{
+    background: rgb(0 0 0 / 65%);
+}
+
+.WeatherDiv:active{
+    background: rgb(0 0 0 / 75%);
+}
+
+.WeatherDiv p {
+    font-size: 2vh;
+}
+
+.WeatherType {
+    font-size: 4vh;
+}
+
+.notificationBox {
+    background: rgb(0 0 0 / 65%);
+    border-radius: 1vh;
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    height: 15%;
+    margin: 2vh 1vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    padding: 0.5vh 1vh;
+    gap: 0.5vh;
+}
+
+.notificationBox .Title {
+    font-size: 1.5vh;
+}
+
+.notificationBox .Desc {
+    font-size: 2vh;
+}
+
+.notificationBox .notificationClose {
+    position: absolute;
+    width: 6%;
+    height: 4.5%;
+    background: red;
+    z-index: 10;
+    border-radius: 100%;
+    right: 4%;
+    cursor: none;
+}
+
+.AllNotifications {
+    background: rgb(0 0 0 / 65%);
+    border-radius: 1vh;
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    position: absolute;
+    left: 55%;
+    width: 22%;    
+    bottom: 10%;
+    height: 53%;
+}
+
+.AllNotifications h1 {
+    font-size: 2vh;
+}
+
+.AllNotifications p {
+    font-size: 3vh;
+    margin-top: 5%;
+}
+
+.TaskDock {
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    background: rgb(0 0 0 / 65%);
+    max-width: auto;
+    min-width: 80%;
+    max-width: 99.5%;
+    height: 8vh;
+    border-radius: 1.5vh;
+    padding: 1vh 1vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    gap: 2vh;
+    margin-bottom: 0.9vh;
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+}
+
+.SearchBarInputCSS {
+    border-radius: 0.5vh;
+    background: rgb(0 0 0 / 65%);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    font-size: 2.5vh;
+    padding: 0.5vh 1.5vh;
+    width: 90%;
+}
+
+.SearchBarCSS {
+    width: 100%;
+}
+
+.StartMenu {
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    height: 61%;
+    width: 40%;
+    position: absolute;
+    bottom: 10.5%;
+    left: 1.2%;
+    background: rgb(0 0 0 / 65%);
+    border-radius: 0.5vh;
+    transition: all 2s ease-in-out;
+}
+
+.AllDesktopApps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3vh;
+}
+
+.Top {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    align-items: flex-start;
+    padding: 0.5rem 1rem;
+    font-size: 2.2vh;
+}
+
+.Bottom {
+    position: absolute;
+    bottom: 0;
+    background: rgb(0 0 0 / 65%);
+    width: 100%;
+    height: 10%;
+}
+
+.Toggles {
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+}
+
+.Toggles div {
+    width: 5vh;
+    background: rgb(0 0 0 / 65%);
+    display: flex;
+    justify-content: center;
+    padding: 0.5vh 1vh;
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    border-radius: 0.5vh;
+}
+
+.SettingHome {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.SettingHome h3{
+    overflow: hidden;
+}
+
+.SettingHomeProfile {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.SettingHomeProfile h3{
+    overflow: hidden;
+}
+
+.Options {
+    margin: 4vh 0vh;
+}
+
+.settingOption {
+    margin: 1vh 0vh;
+    overflow: hidden;
+}
+
+.settingOption label {
+    margin-right: 2vh;
+}
+
+.select {
+    background: rgba(var(--card-rgb), 0.1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    border-radius: 1.5vh;
+    padding: 1vh 2vh;
+    width: 56%;
+    margin-left: 2vh;
+    height: 5vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.select option {
+    background: rgba(var(--card-rgb), 0.1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    border-radius: 1.5vh;
+    padding: 1vh 2vh;
+}
+
+.User {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    gap: 2vh;
+    width: 50%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.StartAppIcon {
+    font-size: 5vh;
+}
+
+.Middle {
+    text-align: left;
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: column;
+    font-size: 2.2vh;
+    align-items: flex-start;
+    margin-left: 2vh;
+    gap: 1vh;
+    border-top: 1px solid white;
+    width: 94%;
+}
+
+.SearchBarCSS form {
+    display: flex;
+    align-items: center;
+    font-size: 3vh;
+    gap: 1vh;
+    justify-content: center;
+    margin-top: 1.5vh;
+    width: 100%;
+}
+
+.button {
+    background: rgba(var(--card-rgb), 0.1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    border-radius: 1.5vh;
+    font-size: 1.5vh;
+    padding: 1vh 2vh;
+    color: #fff;
+}
+
+.calendarHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.calendarNavBtn {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+}
+
+.calendarMonth {
+    font-size: 1.2rem;
+}
+
+.calendarDays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.calendarDay {
+    padding: 8px 0;
+}
+
+.calendarDates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    padding: 2px;
+}
+
+.calendarDate {
+    padding: 1vh;
+    text-align: center;
+}
+
+.weatherWidget {
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+}
+
+.weatherTitle {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    margin-top: 1vh
+}
+
+.weatherDataCSS {
+    font-size: 1.2rem;
+    text-align: left;
+    padding: 0vh 2vh;
+    margin-top: 3vh;
+}
+
+.currentDateGlow {
+    background-color: #00aaff;
+    color: #fff;
+    border-radius: 7%;
+    animation: glowAnimation 2s infinite alternate;
+}
+
+@keyframes glowAnimation {
+    from {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    to {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+.calendarEmptyDay {
+    height: 2rem;
+}
+
+.recommendedApps {
+    margin-top: 20px;
+}
+
+.sectionTitle {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.appList {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0vh 1vh;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1vh;
+}
+
+.appItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+    width: 5vw;
+    background: rgb(0 0 0 / 65%);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    border-radius: 1vh;
+    padding: 1vh;
+    margin-bottom: 20px;
+}
+
+
+.widgetTitle {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.copyHistory {
+    background: rgb(0 0 0 / 65%);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    border-radius: 1vh;
+    padding: 10px;
+    max-height: 150px;
+    overflow-y: auto;
+    margin: 1vh 2vh;
+}
+
+.copyButton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+}
+
+.appIcon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.Widget1 {
+    background: rgb(0 0 0 / 65%);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    width: 28%;
+    position: absolute;
+    top: 6%;
+    left: 1%;
+    height: 41%;
+    border-radius: 1vh;
+    animation: slideIn2 0.5s ease-in-out;
+}
+
+.Widget2 {
+    background: rgb(0 0 0 / 65%);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    width: 28%;
+    position: absolute;
+    top: 48%;
+    left: 1%;
+    height: 41%;
+    border-radius: 1vh;
+    animation: slideIn2 0.5s ease-in-out;
+}
+
+.Widget3 {
+    background: rgb(0 0 0 / 65%);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    width: 28%;
+    position: absolute;
+    top: 6%;
+    right: 1%;
+    height: 41%;
+    border-radius: 1vh;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+.Widget4 {
+    background: rgb(0 0 0 / 65%);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    width: 28%;
+    position: absolute;
+    top: 48%;
+    right: 1%;
+    height: 41%;
+    border-radius: 1vh;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+.StartApp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vh;
+    padding: 1vh;
+    width: 14vh;
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    background: rgb(0 0 0 / 65%);
+    border-radius: 0.5vh;
+}
+
+.Line {
+    border: 1px solid #ffffff69;
+    height: 108%;
+    border-radius: 0.5vh;
+}
+
+.startBtn {
+    height: 3.2vh;
+    width: 5.5vh;
+    transition: all .2s;
+    color: #fff;
+    margin-top: 0.5vh;
+}
+
+
+.startBtn:hover {
+    color: rgb(0, 119, 255);
+}
+
+.startBtn:active {
+    color: rgb(0, 47, 255);
+}
+
+.TaskList {
+    height: 6vh;
+    width: 6.5vh;
+    transition: all 0.2s;
+    color: rgb(255, 255, 255);
+}
+
+
+.TaskList:hover {
+    color: rgb(0, 200, 255);
+}
+
+.TaskList:active {
+    color: rgb(0, 119, 255);
+}
+
+.App {
+    position: absolute;
+    width: 0vh;
+    overflow: hidden;
+    height: 67vh;
+    border-radius: 1.2vh;
+    transition: all 2s;
+    top: 14vh;
+    left: 60vh;
+}
+
+.StoreApp {
+    position: absolute;
+    width: 0vh;
+    overflow: hidden;
+    height: 67vh;
+    border-radius: 1.2vh;
+    transition: width 2s, height 2s;
+    top: 14vh;
+    left: 60vh;
+}
+
+.top {
+    position: absolute;
+    top: 0vh;
+    width: 116vh;
+    height: 4.2vh;
+    background: #000000f7;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row-reverse;
+    transition: all 2s;
+}
+
+.BroTop {
+    position: absolute;
+    top: 0vh;
+    width: 116vh;
+    height: 9.1vh;
+    background: #000000f7;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row-reverse;
+    transition: all 2s;
+    padding-top: 1vh;
+}
+
+.close {
+    background: #f00;
+    height: 2.5vh;
+    width: 2.5vh;
+    margin: 0vh 1.5vh;
+    border-radius: 100%;
+}
+
+.close:hover {
+    background: #d50000;
+}
+
+.close:active {
+    background: #bc0000;
+}
+
+.minimize {
+    background: #fff600;
+    height: 2.5vh;
+    width: 2.5vh;
+    margin: 0vh 0.7vh;
+    border-radius: 100%;
+}
+
+.minimize:hover {
+    background: #dad200;
+}
+
+.minimize:active {
+    background: #b6b000;
+}
+
+.maximize {
+    background: #2dff00;
+    height: 2.5vh;
+    width: 2.5vh;
+    margin: 0vh 1.5vh;
+    border-radius: 100%;
+}
+
+.maximize:hover {
+    background: #28da00;
+}
+
+.maximize:active {
+    background: #1d9e00;
+}
+
+.title {
+    position: absolute;
+    left: 2vh;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+}
+
+.Files {
+    height: 63vh;
+    width: 116vh;
+    background: #000000bd;
+    border-bottom-left-radius: 1.5vh;
+    border-bottom-right-radius: 1.5vh;
+    position: absolute;
+    top: 4.1vh;
+    transition: all 2s;
+}
+
+.BrowserFiles {
+    height: 63vh;
+    width: 116vh;
+    background: #000000bd;
+    border-bottom-left-radius: 1.5vh;
+    border-bottom-right-radius: 1.5vh;
+    position: absolute;
+    top: 9.1vh;
+    transition: all 2s;
+}
+
+.sidebar {
+    width: 27.6%;
+    height: 63vh;
+    background: #000000ba;
+    text-align: start;
+}
+
+.text {
+    margin-top: 2vh;
+    padding: 0.8vh 2.5vh;
+    border-radius: 0.8vh;
+    width: 91%;
+    margin-left: 1.5vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+.text:hover {
+    background: #0000008f;
+}
+
+.text:active {
+    background: #000000ca;
+}
+
+.MainWindow {
+    width: 72.4%;
+    background: #000000ed;
+    height: 63vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-bottom-right-radius: 1vh;
+}
+
+.QuickDropDown {
+    background: rgb(0 0 0 / 65%);
+    color: #fff;
+    position: absolute;
+    top: 5vh;
+    left: 2vh;
+    height: auto;
+    width: 11vw;
+    border-radius: 1vh;
+}
+
+.Profile {
+    display: flex;
+    margin: 0vh 2vh;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.QuickDropDown button{
+    margin: 1vh 1vh;
+    border-radius: 0.3vh;
+    width: 15vh;
+}
+
+.QuickDropDown button:hover {
+    background: blue;
+}
+
+.StoreMainWindow {
+    width: 72.4%;
+    background: #000000ed;
+    height: 63vh;
+    position: absolute;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    border-bottom-right-radius: 1vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.ChatMainWindow {
+    width: 100%;
+    background: #000000ed;
+    height: 63vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-bottom-right-radius: 1vh;
+}
+
+.BroMainWindow {
+    width: 100%;
+    background: #000000ed;
+    height: 63vh;
+    position: absolute;
+    top: 3;
+    right: 0;
+    border-bottom-right-radius: 1vh;
+}
+
+.closeResult {
+    background: #f00;
+    height: 2.5vh;
+    width: 2.5vh;
+    margin: 0vh 1.5vh;
+    position: absolute;
+    border-radius: 100%;
+    right: 0;
+}
+
+.closeResult:hover {
+    background: #d50000;
+}
+
+.closeResult:active {
+    background: #bc0000;
+}
+
+.LeftDock {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgb(0 0 0 / 65%);
+    border-radius: 0.5rem;
+    padding: 0vh 1vh;
+    font-family: 'Roboto', sans-serif;
+    height: 8vh;
+    margin-bottom: 1.5vh;
+    margin-left: 1.5vh;
+}
+
+.RightDock {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2vh;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: rgb(0 0 0 / 65%);
+    border-radius: 0.5rem;
+    padding: 1vh;
+    font-family: 'Roboto', sans-serif;
+    height: 8vh;
+    font-size: 3.9vh;
+    margin-bottom: 1.5vh;
+    margin-right: 1.5vh;
+}
+
+.battery {
+    border: 2px solid white;
+    padding: 0vh 1vh;
+    border-radius: .5vh;
+    background: #fff;
+}
+
+.battery div {
+    background: #000;
+    height: 100%;
+    width: 50%;
+}
+
+
+.CalcOutput {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 4vh;
+    height: 16%;
+    padding: 0 1rem;
+}
+
+.btns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 0fr);
+    gap: .5rem;
+    padding: 1rem;
+    height: 75%;
+}
+
+.btn {
+    position: relative;
+    color: #fff;
+    border: none;
+    height: 10vh;
+    outline: none;
+    cursor: none;
+    font-size: 2rem;
+    border-radius: .5rem;
+    background: rgb(141 141 141 / 25%);
+    box-shadow: 0 13px 15px rgb(255 255 255 / 8%);
+    transition: all .1s ease;
+}
+
+.btn:active {
+    top: 5px;
+    box-shadow: none;
+}
+
+.btn:active:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: .5rem;
+    z-index: -1;
+    animation: click-effect .4s ease-out;
+}
+
+.iFrame {
+    height: 100%;
+    width: 100%;
+}
+
+@keyframes click-effect {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+.SearchBar {
+    margin-top: 2vh;
+    background: rgba(88, 88, 88, 0.65);
+    outline: none;
+    border: none;
+    padding: 1vh 2vh;
+    width: 41.5vw;
+    border-radius: 0.2rem;
+}
+
+.windowtime {
+    font-size: 5rem;
+}
+
+.windowdate {
+    font-size: 4rem;
+}
+
+.windowtimes {
+    font-size: 3rem;
+}
+
+.ul {
+    display: flex;
+}
+
+.file {
+    width: 90%;
+    border-radius: 1.2vh;
+    background: rgb(100 100 100 / 49%);
+    border: 1px solid rgba(var(--card-border-rgb), 0);
+    height: auto;
+    margin: 0vh 2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rightOptions {
+    position: absolute;
+    background: rgb(79 79 79 / 52%);
+    border: 1px solid rgb(255 255 255 / 20%);
+    display: flex;
+    flex-direction: column;
+    margin-top: 13vh;
+    margin-left: 14vh;
+    gap: 1.5vh;
+    padding: 1vh 2vh;
+    font-size: 1.8vh;
+    border-radius: 0.5vh;
+}
+
+.rightOptions button {
+    padding: 0.5vh 3vh;
+}
+
+.UploadBtn{
+    cursor: none;
+    width: 10vh;
+    height: 8vh;
+    position: absolute;
+    background: rgba(0, 0, 0, 50%);
+    border: 1px solid rgba(var(--card-border-rgb), 0);
+    padding: 0vh 1vh;
+    border-radius: 0.5vh;
+    margin-bottom: 0.5vh;
+    bottom: 0vh;
+    right: 2vh;
+}
+
+.rightOptions button:hover {
+    background: blue;
+    cursor: none;
+    border-radius: 0.5vh;
+}
+
+.file img {
+    height: 10vh;
+    margin: 0.8vh 2.3vh;
+}
+
+.file div {
+    text-align: left;
+    margin-left: 1vh;
+}
+
+.file:hover {
+    background: rgb(100 100 100 / 60%);
+}
+
+.file:active {
+    background: rgb(100 100 100 / 80%);
+}
+
+.AllHomeFiles {
+    display: flex;
+    flex-direction: row;
+}
+
+.addFiles {
+    height: 5vh;
+    width: 5vw;
+    position: absolute;
+    top: 57vh;
+    right: 2vh;
+    background: rgb(255 255 255 / 19%);
+    border-radius: 0.5vh;
+}
+
+.addFiles:hover {
+    background: rgb(255 255 255 / 37%);
+}
+
+.addFiles:active {
+    background: rgb(255 255 255 / 59%);
+}
+
+.deleteFiles {
+    height: 5vh;
+    width: 7vw;
+    position: absolute;
+    top: 57vh;
+    right: 15vh;
+    background: rgba(255, 0, 0, 0.19);
+    border-radius: 0.5vh;
+}
+
+.deleteFiles:hover {
+    background: rgba(255, 0, 0, 0.37);
+}
+
+.deleteFiles:active {
+    background: rgba(255, 0, 0, 0.59);
+}
+
+.AddFilesWindow {
+    height: 0vh;
+    width: 0vh;
+    position: absolute;
+    background: #363636a1;
+    border-radius: 1.2vh;
+    top: 15%;
+    left: 11%;
+    transition: all 2s;
+}
+
+.AddFileWindowClose {
+    background: #f00;
+    height: 2.5vh;
+    width: 2.5vh;
+    margin: 0vh 1.5vh;
+    right: 0vh;
+    border-radius: 100%;
+    position: absolute;
+    top: 1vh;
+}
+
+.fileInput {
+    padding: 1vh 2vh;
+    background-color: #000000a3;
+    border-radius: 4px;
+    height: 17vh;
+    display: flex;
+    justify-content: center;
+    width: 33%;
+    margin: 3vh 19.5vh;
+    align-items: center;
+}
+
+.fileInput span {
+    display: inline-block;
+}
+
+.fileInput input[type="file"] {
+    display: none;
+}
+
+.download {
+    font-size: 4vh;
+    position: absolute;
+    margin: 3vh -1vh;
+}
+
+.openIn {
+    font-size: 4vh;
+    position: absolute;
+    margin: 3vh -5.5vh;
+}
+
+@media (max-width: 1000px) {
+    .main {
+        visibility: hidden;
+        content: "Not supported on this device.";
+    }
+}
+
+/* Dropdown styles */
+.Dropdown {
+    position: absolute;
+    bottom: 5.2rem;
+    right: 0.5em;
+    display: flex;
+    flex-direction: column;
+    width: 8rem;
+    background-color: #00000086;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 10;
+    color: #fff;
+}
+
+.DropdownOption {
+    padding: 0.5rem 1rem;
+    margin: 1vh;
+    border-radius: 1vh;
+}
+
+.Badge {
+    font-size: 2.5vh;
+    background: linear-gradient(45deg, #0017ff, #5500ff, #b700ff);
+    border-radius: 0.5vh;
+    padding: 0.2vh 1vh;
+}
+
+.Badge2 {
+    font-size: 2vh;
+    background: linear-gradient(45deg, #0017ff, #5500ff, #b700ff);
+    border-radius: 0.5vh;
+    padding: 0.2vh 1.5vh;
+}
+
+.DropdownOption:hover {
+    background: #0005ffc7;
+}
+
+.StartStopClock {
+    background: green;
+    border-radius: 1vh;
+    padding: 0vh 3vh;
+    margin: 0vh 1vh;
+    height: 7vh;
+    font-size: 4vh;
+}
+
+.StopStopClock {
+    background: red;
+    border-radius: 1vh;
+    padding: 0vh 3vh;
+    margin: 0vh 1vh;
+    height: 7vh;
+    font-size: 4vh;
+}
+
+.ResetStopClock {
+    background: rgb(197, 197, 0);
+    border-radius: 1vh;
+    padding: 0vh 3vh;
+    margin: 0vh 1vh;
+    height: 7vh;
+    font-size: 4vh;
+}
+
+.StartStopClock:hover {
+    background: rgb(0, 153, 0);
+}
+
+.StopStopClock:hover {
+    background: rgb(223, 0, 0);
+}
+
+.ResetStopClock:hover {
+    background: rgb(170, 170, 0);
+}
+
+.StartStopClock:active {
+    background: rgb(0, 128, 0);
+}
+
+.StopStopClock:active {
+    background: rgb(149, 0, 0);
+}
+
+.ResetStopClock:active {
+    background: rgb(128, 128, 0);
+}
+
+.StartStopClock:disabled {
+    background: rgb(0, 95, 0);
+}
+
+.StopStopClock:disabled {
+    background: rgb(103, 0, 0);
+}
+
+.ResetStopClock:disabled {
+    background: rgb(90, 90, 0);
+}
+
+.timerDiv {
+    display: flex;
+    gap: 2vh;
+    flex-direction: column;
+    align-items: center;
+    font-size: 3vh;
+}
+
+.timerInput {
+    background: rgba(var(--card-rgb), 0.1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    border-radius: 1.5vh;
+    padding: 1vh 2vh;
+    width: 92%;
+    margin-left: 2vh;
+    height: 6vh;
+}
+
+.Notifications {
+    background: rgb(0 0 0 / 62%);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    border-radius: 1.5vh;
+    padding: 1vh 2vh;
+    width: 20%;
+    height: auto;
+    position: absolute;
+    right: 2vh;
+    top: 4vh;
+    text-align: left;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+.Notifications p {
+    font-size: 2vh;
+}
+
+.NotificationsClose {
+    position: absolute;
+    top: 1.5vh;
+    right: 1.5vh;
+    z-index: 10;
+    background: rgb(0 0 0 / 39%);
+    border-radius: 100%;
+    padding: 0.5vh 1.5vh;
+    font-size: 2.2vh;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn2 {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn3 {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.option {
+    background: #02182d;
+    color: #cfcfcf;
+}
+
+.application {
+    height: 26vh;
+    width: 10vw;
+    margin: 1vh 2vh;
+    border-radius: 0.5vh;
+    background: rgb(127 127 127 / 16%);
+    padding: 2vh 1vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.application span {
+    overflow: hidden;
+}
+
+.appDownload {
+    font-size: 4vh;
+    margin-left: 13vh;
+    margin-top: 1vh;
+    overflow: hidden;
+}
+
+.AppIcon {
+    font-size: 16vh;
+    overflow: hidden;
+}
+
+
+/* Startup Loading Bar Styles */
+.startupLoadingContainer {
+    margin-top: 4vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+}
+
+.startupLoadingBar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.startupProgress {
+    height: 100%;
+    background: linear-gradient(90deg, #00d4ff, #0099cc, #0066ff, #00d4ff);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+    position: relative;
+    animation: startupPulse 2s ease-in-out infinite;
+}
+
+.startupGlow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    border-radius: 4px;
+    animation: startupShimmer 1.5s ease-in-out infinite;
+}
+
+.startupLoadingText {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    animation: startupFadeInUp 0.8s ease-out;
+}
+
+@keyframes startupPulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes startupShimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes startupFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design for startup loading */
+@media (max-width: 768px) {
+    .startupLoadingBar {
+        height: 6px;
+    }
+    
+    .startupLoadingText {
+        font-size: 14px;
+    }
+    
+    .startupLoadingContainer {
+        max-width: 400px;
+        margin-top: 3vh;
+    }
+}

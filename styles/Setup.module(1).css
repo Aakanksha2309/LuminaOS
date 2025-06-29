@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.main {
+    background: linear-gradient(rgb(0, 6, 30), rgb(0, 5, 26), rgb(0, 1, 6));
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: visible;
+}
+
+.login {
+    background: rgba(var(--card-rgb), 0.1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    height: auto;
+    margin-top: 2vh;
+    width: 60vh;
+    border-radius: 2vh;
+}
+
+.Heading {
+    margin-top: 5vh;
+    margin-left: 3vh;
+    font-family: 'Roboto', sans-serif;
+    font-size: 4vh;
+    margin-bottom: 3vh;
+}
+
+.inputSetup {
+    background: rgba(var(--card-rgb), 0.1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    border-radius: 1.5vh;
+    padding: 1vh 2vh;
+    width: 92%;
+    margin-left: 2vh;
+    height: 6vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.btnstart {
+    background: rgba(var(--card-rgb), 0.1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    border-radius: 1.5vh;
+    padding: 1vh 2vh;
+    width: 92%;
+    margin-left: 2vh;
+    height: 6vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    cursor: pointer;
+    color: #fff;
+}
+
+.option{
+    background: #02182d;
+    color: #cfcfcf;
+}
+
+.checkbox{
+    width: 10%;
+    height: 3vh;
+    margin-left: 1vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.login label {
+    font-family: 'Roboto', sans-serif;
+}
+
+.img {
+    height: 19vh;
+    border-radius: 100%;
+    border: none;
+    margin-left: 4vh;
+}

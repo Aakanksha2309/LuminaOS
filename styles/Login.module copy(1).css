@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.img {
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+}
+
+.main {
+    min-width: 100vw;
+    min-height: 100vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.login {
+    background: rgba(var(--card-rgb), 0.1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    height: 65vh;
+    width: 60vh;
+    border-radius: 2vh;
+}
+
+.Heading {
+    margin-top: 5vh;
+    margin-left: 3vh;
+    font-family: 'Roboto', sans-serif;
+    font-size: 4vh;
+    margin-bottom: 3vh;
+}
+
+.input {
+    background: rgba(var(--card-rgb), 0.1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    border-radius: 1.5vh;
+    padding: 1vh 2vh;
+    width: 92%;
+    margin-left: 2vh;
+    height: 6vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.btn {
+    background: rgba(var(--card-rgb), 0.1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    border-radius: 1.5vh;
+    padding: 1vh 2vh;
+    width: 92%;
+    margin-left: 2vh;
+    height: 6vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    cursor: pointer;
+    color: #fff;
+}
+
+.login p {
+    font-family: 'Roboto', sans-serif;
+    margin: 2vh 1.5vh;
+}
+
+.login p a {
+    color: rgb(0, 106, 255);
+}
+
+.red {
+    color: red;
+}

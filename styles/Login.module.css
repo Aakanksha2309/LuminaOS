@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.img {
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    filter: blur(2px);
+}
+
+.main {
+    min-width: 100vw;
+    min-height: 100vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.Login {
+    height: 90vh;
+    width: 95vw;
+    margin: 5vh 0vh;
+    position: absolute;
+    border-radius: 1.5vh;
+    background: rgb(0 0 0 / 47%);
+    transition: all 1.5s ease-in-out;
+}
+
+.Login h1 {
+    font-size: 5vh;
+    margin: 4vh 0vh;
+}
+
+.Activate {
+    height: 90vh;
+    width: 95vw;
+    margin: 5vh 0vh;
+    position: absolute;
+    border-radius: 1.5vh;
+    background: rgb(0 0 0 / 47%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1.5s ease-in-out;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.Setup {
+    height: 90vh;
+    width: 95vw;
+    margin: 5vh 0vh;
+    position: absolute;
+    border-radius: 1.5vh;
+    background: rgb(0 0 0 / 47%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1.5s ease-in-out;
+    flex-direction: column;
+}
+
+.Activate h1 {
+    font-size: 5vh;
+    margin: 4vh 0vh;
+}
+
+.Setup h1 {
+    font-size: 5vh;
+    margin: 4vh 0vh;
+}
+
+.input {
+    background: rgba(var(--input-rgb), 0.300);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    border-radius: 1vh;
+    padding: 1vh 2vh;
+    width: 92%;
+    margin-left: 2vh;
+    height: 6vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.SetupInput {
+    background: rgba(var(--input-rgb), 0.300);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    border-radius: 1vh;
+    padding: 1vh 2vh;
+    width: 92%;
+    margin-left: 2vh;
+    height: 6vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.btn {
+    background: rgba(var(--input-rgb), 0.300);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    border-radius: 1vh;
+    padding: 1vh 2vh;
+    width: 5%;
+    margin-left: 2vh;
+    height: 7vh;
+    margin-bottom: 2vh;
+    cursor: pointer;
+    position: absolute;
+    color: #fff;
+    bottom: 2vh;
+    right: 1vh;
+}
+
+.activateBtn {
+    background: rgba(var(--input-rgb), 0.300);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    outline: none;
+    border-radius: 1vh;
+    padding: 1vh 2vh;
+    width: 5%;
+    margin-left: 2vh;
+    height: 7vh;
+    margin-bottom: 2vh;
+    cursor: pointer;
+    position: absolute;
+    color: #fff;
+    bottom: 2vh;
+    right: 1vh;
+    visibility: hidden;
+}
+
+.Login p {
+    font-family: 'Roboto', sans-serif;
+    margin: 2vh 1.5vh;
+}
+
+.Login p a {
+    color: rgb(0, 106, 255);
+}
+
+.red {
+    color: red;
+}
+
+.Loading {
+    width: 4%;
+    height: 6%;
+    position: absolute;
+    margin: 47vh 0vh;
+    border-radius: 1.5vh;
+    background: rgb(0 0 0 / 47%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1.5s ease-in-out;
+}
+
+.Load {
+    width: 5vh;
+    height: 5vh;
+    border: 4px solid transparent;
+    border-top: 5px solid #fff;
+    border-radius: 100%;
+    animation: spin 2s linear infinite;
+    transition: all 1.5s ease-in-out;
+}
+
+.ActivateLoad {
+    width: 15vh;
+    height: 15vh;
+    border: 4px solid transparent;
+    border-top: 5px solid #fff;
+    border-radius: 100%;
+    animation: spin 2s linear;
+    transition: all 1.5s ease-in-out;
+    margin-bottom: 25vh;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.option{
+    background: #02182d;
+    color: #cfcfcf;
+}
+
+.checkbox{
+    width: 10%;
+    height: 3vh;
+    margin-left: 1vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
