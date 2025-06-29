@@ -420,7 +420,7 @@ const LuminaOS = ({ onTextBoxHover, onTextBoxLeave }) => {
                         <button onClick={handleClick} className={styles.btnstart}>Next</button>
                         <p id="red" className={styles.red}></p>
                         <p>
-                            Don't have an account? <a href="./signup">Sign Up</a> for free!
+                            Don't have an account? <a href="/SignUp">Sign Up</a> for free!
                         </p>
                         <p>
                             Forgot your password? <a href="/Setup">Reset it</a>.

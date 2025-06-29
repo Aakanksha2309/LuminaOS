@@ -1461,7 +1461,7 @@ const Home = ({ onTextBoxHover, onTextBoxLeave }) => {
                                     onChange={() => handleIframeLoad()}
                                     id="BrowserIFrame"
                                     className={styles.iFrame}
-                                    src={url}
+                                    src={`https://luminaos.vercel.app/api/iframe-procxy/proxy?url=${encodeURIComponent(url)}`}
                                 />
                             </div>
                         </div>
@@ -1479,7 +1479,7 @@ const Home = ({ onTextBoxHover, onTextBoxLeave }) => {
                                 <iframe
                                     id="WhatsAppIFrame"
                                     className={styles.iFrame}
-                                    src={'https://web.whatsapp.com/'}
+                                    src={`https://luminaos.vercel.app/api/iframe-procxy/proxy?url=${encodeURIComponent('https://web.whatsapp.com/')}`}
                                     sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
                                 />
                             </div>
