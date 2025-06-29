@@ -1,28 +1,28 @@
+// app/api/proxy/route.js
 export async function GET(req) {
   const { searchParams } = new URL(req.url);
-  const targetUrl = searchParams.get('url');
+  const targetUrl = searchParams.get("url");
+
   if (!targetUrl) {
-    return new Response('Missing ?url param', { status: 400 });
+    return new Response("❌ URL parameter missing", { status: 400 });
   }
-  // Block localhost for security
-  if (targetUrl.includes('localhost') || targetUrl.includes('127.0.0.1')) {
-    return new Response('URL blocked for security.', { status: 403 });
-  }
+
   try {
-    const fetchRes = await fetch(targetUrl, {
-      headers: { 'User-Agent': 'Mozilla/5.0' }
+    const response = await fetch(targetUrl);
+    const contentType = response.headers.get("content-type") || "text/html";
+    const html = await response.text();
+
+    return new Response(html, {
+      status: 200,
+      headers: {
+        "Content-Type": contentType,
+        // 👇 Iframe ke liye allow karo
+        "X-Frame-Options": "ALLOWALL",
+        "Content-Security-Policy": "frame-ancestors *"
+      }
     });
-    // Remove problematic headers
-    const headers = new Headers(fetchRes.headers);
-    headers.delete('x-frame-options');
-    headers.delete('content-security-policy');
-    headers.delete('content-security-policy-report-only');
-    const body = await fetchRes.arrayBuffer();
-    return new Response(body, {
-      status: fetchRes.status,
-      headers,
-    });
-  } catch (e) {
-    return new Response('Proxy failed', { status: 500 });
+
+  } catch (err) {
+    return new Response("❌ Failed to fetch the URL", { status: 500 });
   }
-} 
+}
