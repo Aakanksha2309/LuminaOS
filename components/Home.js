@@ -194,26 +194,26 @@ const Home = ({ onTextBoxHover, onTextBoxLeave }) => {
       }, [storeDragging]);
       
 
-    function isTotalSizeValid(files, maxSizeInMB) {
-        const maxSizeInBytes = maxSizeInMB * 1024 * 1024; // Convert MB to bytes
-        let totalSize = 0;
+    // function isTotalSizeValid(files, maxSizeInMB) {
+    //     const maxSizeInBytes = maxSizeInMB * 1024 * 1024; // Convert MB to bytes
+    //     let totalSize = 0;
 
-        for (const file of files) {
-            totalSize += file.size;
-        }
+    //     for (const file of files) {
+    //         totalSize += file.size;
+    //     }
 
-        return totalSize <= maxSizeInBytes;
-    }
+    //     return totalSize <= maxSizeInBytes;
+    // }
 
-    // Example usage:
-    const maxSize = 200; // Maximum size in megabytes
-    const files = 2;
+    // // Example usage:
+    // const maxSize = 200; // Maximum size in megabytes
+    // const files = 2;
 
-    if (isTotalSizeValid(files, maxSize)) {
-        console.log('Total file size is within the allowed limit.');
-    } else {
-        console.log('Total file size exceeds the allowed limit.');
-    }
+    // if (isTotalSizeValid(files, maxSize)) {
+    //     console.log('Total file size is within the allowed limit.');
+    // } else {
+    //     console.log('Total file size exceeds the allowed limit.');
+    // }
     const storeFileId = (fileId) => {
         const storedFileIds = localStorage.getItem('fileIds');
         const fileIds = storedFileIds ? JSON.parse(storedFileIds) : [];
@@ -222,48 +222,30 @@ const Home = ({ onTextBoxHover, onTextBoxLeave }) => {
     };
 
     useEffect(() => {
-  const fetchUserFiles = async () => {
-    const currentEmail = localStorage.getItem('Email');
-    if (!currentEmail) {
-      console.warn("No user email found in localStorage.");
-      return;
-    }
+        const getthestoredFileIds = localStorage.getItem('fileIds');
+        setStoredFileIds(JSON.parse(getthestoredFileIds));
+        console.log(storedFileIds);
+        if (storedFileIds) {
+            async function fetchFiles() {
+                const files = await Promise.all(
+                    storedFileIds.map(async (fileId) => {
+                        try {
+                            const file = await storage.getFile(process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID, fileId);
+                            console.log("Files retrieved!");
+                            return file;
+                        } catch (error) {
+                            console.error(`Error fetching file ${fileId}:`, error);
+                            return null;
+                        }
+                    })
+                );
 
-    try {
-      // Step 1: Fetch file metadata where email matches
-      const response = await databases.listDocuments(
-        process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
-        process.env.NEXT_PUBLIC_APPWRITE_FILES_COLLECTION_ID,
-        [Query.equal("email", currentEmail)]
-      );
-
-      // Step 2: Extract fileIds and fetch files from storage
-      const userFileIds = response.documents.map(doc => doc.fileId);
-
-      const files = await Promise.all(
-        userFileIds.map(async (fileId) => {
-          try {
-            return await storage.getFile(
-              process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID,
-              fileId
-            );
-          } catch (error) {
-            console.error(`Error fetching file ${fileId}:`, error);
-            return null;
-          }
-        })
-      );
-
-      // Step 3: Store non-null files
-      setFileList(files.filter(f => f !== null));
-    } catch (err) {
-      console.error("Error fetching user's file list:", err);
-    }
-  };
-
-  fetchUserFiles();
-}, []);
-
+                setFileList(files.filter((file) => file !== null));
+                console.log(fileList);
+            }
+            fetchFiles();
+        }
+    }, []);
 
     const handleDelete = async (fileId) => {
         try {
@@ -275,48 +257,54 @@ const Home = ({ onTextBoxHover, onTextBoxLeave }) => {
         }
     };
 
-    const handleUpload = async () => {
-  if (!file) {
-    alert('Please select a file first.');
-    return;
-  }
+    const handleUpload = async (event) => {
+        event.preventDefault();
 
-  const currentEmail = localStorage.getItem('Email');
-  if (!currentEmail) {
-    alert('No email found. Please login again.');
-    return;
-  }
+        const fileInput = document.getElementById('uploader');
+        if (!fileInput.files[0]) {
+            alert('No file selected.');
+            return;
+        }
 
-  try {
-    // Step 1: Upload file to Appwrite Storage
-    const uploaded = await storage.createFile(
-      process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID,
-      ID.unique(),
-      file
-    );
+        const file = fileInput.files[0];
+        const letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-    // Step 2: Save file metadata to Appwrite Database
-    await databases.createDocument(
-      process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
-      process.env.NEXT_PUBLIC_APPWRITE_FILES_COLLECTION_ID,
-      ID.unique(),
-      {
-        fileId: uploaded.$id,
-        email: currentEmail,
-        fileName: file.name,
-        uploadedAt: new Date().toISOString()
-      }
-    );
+        // Generate a unique ID
+        const randomLetters = Array.from({ length: 3 }, () => letters[Math.floor(Math.random() * letters.length)]);
+        const uniqueId = `${Date.now()}${Math.random().toString(36).substr(2, 9)}${randomLetters.join('')}`;
+        console.log(file)
+        console.log(randomLetters)
+        console.log(uniqueId)
+        try {
+            const response = await storage.createFile(process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID, uniqueId, file);
+            console.log(response); // Success
+            storeFileId(uniqueId); // Store the file ID in localStorage
+            const getthestoredFileIds = localStorage.getItem('fileIds');
+            setStoredFileIds(JSON.parse(getthestoredFileIds));
+            if (storedFileIds) {
+                async function fetchFiles() {
+                    const files = await Promise.all(
+                        storedFileIds.map(async (fileId) => {
+                            try {
+                                const file = await storage.getFile(process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID, fileId);
+                                console.log("Files retrieved!");
+                                return file;
+                            } catch (error) {
+                                console.error(`Error fetching file ${fileId}:`, error);
+                                return null;
+                            }
+                        })
+                    );
 
-    alert('File uploaded and saved successfully!');
-    setFile(null); // Reset file input
-    fetchUserFiles(); // Refresh list
-  } catch (error) {
-    console.error('Upload failed:', error);
-    alert('Upload failed. Check console.');
-  }
-};
-
+                    setFileList(files.filter((file) => file !== null));
+                    console.log(fileList);
+                }
+                fetchFiles();
+            }
+        } catch (error) {
+            console.error(error); // Failure
+        }
+    };
 
     useEffect(() => {
         try {
