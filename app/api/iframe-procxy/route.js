@@ -1,4 +1,3 @@
-// app/api/proxy/route.js
 export async function GET(req) {
   const { searchParams } = new URL(req.url);
   const targetUrl = searchParams.get("url");
@@ -10,13 +9,18 @@ export async function GET(req) {
   try {
     const response = await fetch(targetUrl);
     const contentType = response.headers.get("content-type") || "text/html";
-    const html = await response.text();
+    let html = await response.text();
+
+    // 👉 Base URL to resolve relative paths
+    const baseUrl = new URL(targetUrl).origin;
+
+    // 🔧 Convert relative CSS/JS/Image links to absolute
+    html = html.replace(/(src|href)=["']\/(.*?)["']/g, `$1="${baseUrl}/$2"`);
 
     return new Response(html, {
       status: 200,
       headers: {
         "Content-Type": contentType,
-        // 👇 Iframe ke liye allow karo
         "X-Frame-Options": "ALLOWALL",
         "Content-Security-Policy": "frame-ancestors *"
       }
